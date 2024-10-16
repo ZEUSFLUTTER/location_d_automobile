@@ -33,7 +33,7 @@ if ($result === false) {
 <body>
     <header>
         <nav>
-            <a href="index.html">Accueil</a>
+            <a href="index.php">Accueil</a>
             <a href="reserver.php">Réserver</a>
             <a href="admin.php">Admin</a>
         </nav>
