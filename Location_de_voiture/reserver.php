@@ -46,7 +46,7 @@ $conn->close();
 
 <header>
         <nav>
-            <a href="index.php">Accueil</a>
+            <a href="index.html">Accueil</a>
             <a href="reserver.php">Réserver</a>
             <a href="admin.php">Admin</a>
         </nav>
