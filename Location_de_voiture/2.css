@@ -1,0 +1,283 @@
+/* 2.css */
+
+/* Import de la police Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* Réinitialisation des marges, paddings et box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style de base pour le corps */
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Lien */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header (Si vous en avez un) */
+header {
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+header nav a {
+    color: #000;
+    margin-right: 5px;
+    font-size: 16px;
+    padding: 5px 10px;
+    font-family: "Poppins", sans-serif;
+    transition: 0.2s;
+    font-weight: 300;
+}
+
+header nav a:hover,
+header nav a:active {
+    background-color: #14ff72cb;
+    border-radius: 2px;
+}
+
+/* Section d'informations de la voiture sélectionnée */
+#car-info {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #4682b4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Cachée par défaut */
+    position: relative;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#car-info.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#car-info.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Bouton de fermeture de car-info */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #ff0000;
+}
+
+/* Titre de la section d'informations */
+#car-info h2 {
+    margin-bottom: 15px;
+    color: #4682b4;
+    text-align: center;
+}
+
+/* Styles pour la classe 'modele' */
+.modele {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4682b4;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Styles pour les détails de la voiture */
+.car-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.car-info-details p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.car-info-details p strong {
+    color: #333;
+}
+
+/* Conteneur principal avec CSS Grid */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Style pour chaque carte de voiture */
+.voiture {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    cursor: pointer; /* Indique que l'élément est cliquable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.voiture:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Image de la voiture */
+.voiture-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Effet de zoom et opacité sur l'image au survol */
+.voiture:hover .voiture-img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Bouton Réserver */
+.reserve-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-button:hover {
+    background-color: #0ec05a;
+}
+
+/* Styles pour la Modal (Optionnel) */
+.modal {
+    display: none; /* Cachée par défaut */
+    position: fixed;
+    z-index: 1000; /* Au-dessus de tout le reste */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Ajoute un défilement si nécessaire */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.modal-content {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal-description {
+    background-color: #fff;
+    color: #000;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 80%;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.modal-description h2 {
+    margin-bottom: 10px;
+}
+
+.modal-description p {
+    margin: 5px 0;
+}
+
+.modal-description p span:first-child {
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+}
+
+/* Bouton de fermeture de la modal */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive pour la modal */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+    
+    .modal-description {
+        max-width: 95%;
+    }
+}
+
+/* Optionnel : Animation pour l'affichage de car-info */
+#car-info {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#car-info.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

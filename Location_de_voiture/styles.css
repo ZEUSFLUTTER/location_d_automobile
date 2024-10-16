@@ -1,0 +1,270 @@
+/* Import de la police Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* Réinitialisation des marges, paddings et box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style de base pour le corps */
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Structure de la page */
+.container {
+    display: flex; /* Utilisation de Flexbox */
+    height: 100vh; /* Hauteur totale de la page */
+}
+
+/* Barre latérale */
+.sidebar {
+    width: 250px; /* Largeur de la sidebar */
+    background-color: #2c3e50; /* Couleur de fond sombre */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 10px 0;
+    font-weight: 300;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: #14ff72cb; /* Couleur de survol et active */
+    border-radius: 4px;
+}
+
+/* Contenu principal */
+.main-content {
+    flex-grow: 1; /* Prend tout l'espace restant */
+    padding: 20px; /* Ajout de padding pour le contenu */
+    overflow-y: auto; /* Permet de faire défiler le contenu si nécessaire */
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+/* Slider */
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Liste des items dans le slider */
+.slider .list {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+    height: 100%;
+}
+
+/* Chaque item du slider */
+.slider .list .item {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Images des voitures */
+.slider .list .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Contenu superposé sur les images */
+.slider .list .item .content {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    width: 80%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Styles pour le titre, type et description */
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1E90FF; /* Bleu foncé pour "Zeus Auto" */
+}
+
+.type {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #D3D3D3; /* Gris clair pour le type de voiture */
+}
+
+.description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #FFFFFF; /* Blanc pour une meilleure lisibilité */
+}
+
+/* Boutons */
+.button .voir-plus-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.button .voir-plus-button:hover {
+    background-color: #0ec05a;
+}
+
+/* Thumbnails */
+.thumbnail {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.thumbnail .item {
+    width: 80px;
+    height: 60px;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border 0.3s;
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail .item:hover {
+    border: 2px solid #14ff72cb;
+}
+
+/* Previous and Next Arrows */
+.nextPreviousArrows {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.nextPreviousArrows button {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(20, 255, 114, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nextPreviousArrows button:hover {
+    background-color: #0ec05a;
+    transform: scale(1.1);
+}
+
+/* Animations (si nécessaire) */
+@keyframes showContent {
+    to {
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes contentOut {
+    to {
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes showThumbnail {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+/* Ajustements supplémentaires pour le contenu du slider */
+.slider .list .item .content .title,
+.slider .list .item .content .type,
+.slider .list .item .content .description,
+.slider .list .item .button {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s forwards;
+}
+
+.slider .list .item .content .title {
+    animation-delay: 0.4s;
+}
+
+.slider .list .item .content .type {
+    animation-delay: 0.6s;
+}
+
+.slider .list .item .content .description {
+    animation-delay: 0.8s;
+}
+
+.slider .list .item .button {
+    animation-delay: 1s;
+}
